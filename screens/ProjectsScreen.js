@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, ScrollView, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Header from '../components/Header';
 import Footer from '../components//Footer';
 import ProjectCard from '../components/ProjectCard';
@@ -59,16 +59,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    minHeight: '100%',
-    /* paddingTop: 50 */
+    minHeight: '100%'
   },
 
   main: {
     width: '100%',
     flexGrow: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    /* backgroundColor: Colors.lightblue */
+    justifyContent: 'center'
   },
 
   content: {

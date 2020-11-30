@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 import Colors from '../constants/Colors'
 
 
@@ -19,10 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
     paddingVertical: 20,
     paddingHorizontal: 16,
-    color: '#FFF',
-  /*   flexDirection: 'row',
-    alignContent: 'center', 
-    textAlign: 'center' */
+    color: '#FFF'
   },
 
   text: {

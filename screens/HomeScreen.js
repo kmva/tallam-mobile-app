@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import React  from 'react';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Colors from '../constants/Colors';

@@ -32,7 +32,7 @@ const TeachersInProject = props => {
         style={styles.flatList}
         data={props.data} 
         renderItem={renderGridItem}  
-        keyExtractor={(item, index) => item.id} 
+        keyExtractor={item => item.id.toString()} 
       />
     </View>
   )

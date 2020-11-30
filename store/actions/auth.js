@@ -1,4 +1,5 @@
 export const SIGNIN = 'SIGNIN';
+export const SET_SIGNIN_DATA = 'SET_SIGNIN_DATA';
 
 export const signin = (email, password) => {
     return async dispatch => {
@@ -25,3 +26,7 @@ export const signin = (email, password) => {
         dispatch({type: SIGNIN});
     }
 };
+
+export const setSigninData = (email, password) => {
+    return {type: SET_SIGNIN_DATA, email: email, password: password};
+}

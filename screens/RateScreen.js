@@ -38,9 +38,9 @@ const RateScreen = props => {
       dispatch(changeRatingData(criterion, value))
     }
 
-    const resetRatingDataHandler = () => {
+    /* const resetRatingDataHandler = () => {
       dispatch(resetRatingData())
-    }
+    } */
     
     let data = useSelector(state => state.ratingData);
     const postRatingDataHandler = () => {
@@ -187,8 +187,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     backgroundColor: '#FFF',
-   /*  backgroundColor: Colors.darkblue, */
-   /*  alignItems: 'center', */
     paddingVertical: 20,
     paddingTop: 15
   },
@@ -274,14 +272,11 @@ const styles = StyleSheet.create({
   },  
 
   criteriaMainHeadingTop: {
-    /* backgroundColor: Colors.darkblue, */
     color: Colors.darkblue,
     fontWeight: 'bold',
     fontSize: 20,
     width: '100%',
     marginBottom: 16,
-    /* paddingVertical: 10,
-    paddingHorizontal: 18, */
     textAlign: 'center'
   },
 
@@ -290,8 +285,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.darkblue,
     color: '#FFF',
     paddingVertical: 13,
-    alignSelf: 'center',
-   /*  marginTop: 16, */
+    alignSelf: 'center'
   },
 
   rateButtonText: {

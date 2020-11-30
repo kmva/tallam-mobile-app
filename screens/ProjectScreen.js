@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import Header from '../components/Header';
 import Footer from '../components//Footer';
 import TeachersInProject from '../components/TeachersInProject';
@@ -27,11 +27,6 @@ const ProjectScreen = props => {
         </View>
     )
 }
-
-ProjectScreen.navigationOptions = {
-    headerTitle: 'Проект'
-};
-
 
 const styles = StyleSheet.create({
   screen: {

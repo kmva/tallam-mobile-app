@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image} from 'react-native';
 import Colors from '../constants/Colors'
 
 
@@ -21,7 +21,6 @@ const ProjectCard = props => {
 const styles = StyleSheet.create({
     project: {
         width: '90%',
-        /* height: 150, */
         marginTop: 10,
         marginBottom: 30,
         alignContent: 'center',

@@ -23,10 +23,7 @@ const initialState = {
 const ratingDataReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_DATA: 
-            const existingCriterion = action.criterion;
-            if (existingCriterion) { 
-                return {...state, [action.criterion]: action.value}
-            } 
+            return {...state, [action.criterion]: action.value}
         case POST_DATA: 
             console.log('POST_DATA', action.data)
         case RESET_DATA:
