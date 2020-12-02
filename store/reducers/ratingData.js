@@ -27,7 +27,7 @@ const ratingDataReducer = (state = initialState, action) => {
         case POST_DATA: 
             console.log('POST_DATA', action.data)
         case RESET_DATA:
-            console.log('RESET_DATA', initialState,)
+            console.log('RESET_DATA', initialState)
             return initialState;    
         default: 
             return state;

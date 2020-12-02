@@ -1,4 +1,4 @@
-import { LOGIN } from '../actions/auth';
+import { SIGNIN } from '../actions/auth';
 import { SET_SIGNIN_DATA } from '../actions/auth'
 
 const initialState = {
@@ -10,9 +10,10 @@ const authReducer = (state = initialState, action) => {
     console.log(SET_SIGNIN_DATA)
     switch (action.type) {
         case SET_SIGNIN_DATA: 
-            return {...state, [action.criterion]: action.value}
-        case LOGIN: 
-            console.log('LOGIN')  
+            console.log(state);
+            return {...state, [action.field]: action.value}
+        case SIGNIN: 
+            console.log('SIGNIN')  
         default: 
             return state;
     }

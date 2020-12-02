@@ -54,7 +54,6 @@ const AuthNavigator = createStackNavigator({
     Auth: {
         screen: AuthScreen,
         navigationOptions: {
-            title: 'Авторизация',
             headerShown: false
           },
     },

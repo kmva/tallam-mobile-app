@@ -1,39 +1,31 @@
 import React, { useState } from 'react';
 import { Text, TextInput, StyleSheet, View, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../components/mainPage/Header';
 import Footer from '../components/mainPage/Footer';
 import Colors from '../constants/Colors';
 
-/* const REDUCER_UPDATE = 'UPDATE';
-
-const formReducer = (state, action) => {
-  if(action.type === 'UPDATE') {
-
-  } 
-}; */
+import { signin, setSigninData }  from '../store/actions/auth';
 
 const AuthScreen = props => {
 
-  const [loginData, setLoginData] = useState({});
-/* 
-  useReducer(formReducer, { inputValues: {
-      login: loginData.login,
-      password: loginData.password,
-    },
-    formIsValid: false
-  });
-     */
+  const dispatch = useDispatch();
 
-  const loginInputHandler = (login) => {
-      setLoginData({login: login})
-      console.log(loginData)
+  let loginData = useSelector(state => state.auth.email);
+  let passwordData = useSelector(state => state.auth.password);
+
+  const loginInputHandler = value => {
+      dispatch(setSigninData('email', value));
   }
 
-  const passwordInputHandler = (password) => {
-      setLoginData({password: password}) 
-      console.log(loginData)
+  const passwordInputHandler = value => {
+      dispatch(setSigninData('password', value));
+  }
+
+  const authHandler = (loginData, passwordData) => {
+    dispatch(signin(loginData, passwordData));
   }
 
   return (
@@ -44,24 +36,22 @@ const AuthScreen = props => {
                 <TextInput
                     style={styles.inputField} 
                     placeholder="Логин" 
-                    onChangeText={loginInputHandler} 
-                    value={loginData.login}
+                    onChangeText={value => loginInputHandler(value)} 
+                    /* value={loginData} */
                     keyboardType='email-address'
                     returnKeyType='next'
-                    onEndEditing={()=>{console.log('end')}}
+                    /* onEndEditing={()=>{console.log('end')}} */
                   />
                 <TextInput 
                     style={styles.inputField} 
                     placeholder="Пароль" 
-                    onChangeText={passwordInputHandler} 
-                    value={loginData.password}
+                    onChangeText={value => passwordInputHandler(value)} 
+                   /*  value={passwordData} */
                     keyboardType='default'
                     returnKeyType='done'
                   />
                 <TouchableOpacity style={styles.logInButton} 
-                    onPress={() => {
-                      props.navigation.navigate({routeName: 'Projects'});
-                    }}>
+                    onPress={authHandler}>
                     <Text style={styles.logInButtonText}>Войти</Text>
                 </TouchableOpacity>
             </View> 
