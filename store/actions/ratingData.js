@@ -11,6 +11,9 @@ export const resetRatingData = () => {
 }
 
 export const postRatingData = (data, teacherId) => {
+
+    // реализовать занесение оценки в БД
+
     return async dispatch => {
         const res = await fetch('https://tallam-fc50d.firebaseio.com/rating.json',
             {
@@ -30,7 +33,6 @@ export const postRatingData = (data, teacherId) => {
         }
 
         const resData = await res.json();
-        console.log(resData);
         dispatch({
             type: POST_DATA,
             ratingData: {

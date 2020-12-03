@@ -2,6 +2,7 @@ export const SIGNIN = 'SIGNIN';
 export const SET_SIGNIN_DATA = 'SET_SIGNIN_DATA';
 
 export const signin = (email, password) => {
+    // реализовать авторизацию на основе данных пользователей из БД
     return async dispatch => {
         const res = await fetch(
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBsfwGRF-sUccQnr--v5UqCeNNoe_psICs',
@@ -19,11 +20,21 @@ export const signin = (email, password) => {
         );
 
         if(!res.ok){
-            throw new Error('Error')
+            const errorResData = await res.json();
+            const errorId = errorResData.error.message;
+            let errorMessage = "Произошла ошибка";
+            if(errorId === 'EMAIL_NOT_FOUND') {
+                errorMessage = 'Неправильный email'
+            } else if (errorId === 'INVALID_PASSWORD') {
+                errorMessage = 'Неправильный пароль'
+            }
+
+            throw new Error(errorMessage);
+            console.log(errorResData);
         }
 
         const resData = res.json();
-        console.log(resData);
+        /* console.log(resData); */
         dispatch({type: SIGNIN});
     }
 };

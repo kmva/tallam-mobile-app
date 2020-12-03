@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, ScrollView, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TextInput, ScrollView, View, TouchableOpacity, Alert } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RNPickerSelect from 'react-native-picker-select';
@@ -44,8 +44,12 @@ const RateScreen = props => {
     
     let data = useSelector(state => state.ratingData);
     const postRatingDataHandler = () => {
-      dispatch(postRatingData(data, selectedTeacher.id));
-      dispatch(resetRatingData());
+      try {
+        dispatch(postRatingData(data, selectedTeacher.id));
+        dispatch(resetRatingData());
+      } catch(err) {
+        Alert.alert('Ошибка', err, [{text: 'Ok'}]);
+      }
     }
 
     return (

@@ -1,4 +1,5 @@
 import React  from 'react';
+import { useDispatch } from 'react-redux';
 import { createStackNavigator} from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -10,8 +11,16 @@ import ProjectsScreen from '../screens/ProjectsScreen';
 import ProjectScreen from '../screens/ProjectScreen';
 import RateScreen from '../screens/RateScreen';
 
+import { logOut } from '../store/actions/auth';
+
 import Colors from '../constants/Colors'
 
+
+/* const logOutHandler = () => {
+    dispatch(logOut);
+    console.log(props);
+}
+ */
 
 const TallamNavigator = createStackNavigator(
     {
@@ -43,7 +52,7 @@ const TallamNavigator = createStackNavigator(
                     <Item 
                         title='Выйти' 
                         iconName='ios-log-out' 
-                        onPress ={() => {console.log('log-out'); }}
+                        onPress ={/* logOutHandler */() => console.log('logOut') /* navigation.navigate('Projects') */}
                     />
                 </HeaderButtons>
         )

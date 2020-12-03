@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, TextInput, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { Text, TextInput, StyleSheet, View, TouchableOpacity, Alert } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -13,8 +13,9 @@ const AuthScreen = props => {
 
   const dispatch = useDispatch();
 
-  let loginData = useSelector(state => state.auth.email);
-  let passwordData = useSelector(state => state.auth.password);
+  let email = useSelector(state => state.auth.email);
+  let password = useSelector(state => state.auth.password);
+
 
   const loginInputHandler = value => {
       dispatch(setSigninData('email', value));
@@ -24,8 +25,14 @@ const AuthScreen = props => {
       dispatch(setSigninData('password', value));
   }
 
-  const authHandler = (loginData, passwordData) => {
-    dispatch(signin(loginData, passwordData));
+  const authHandler = (email, password) => {
+    try {
+     /*  dispatch(signin(email, password)); */
+      props.navigation.navigate('Projects')
+    } catch (err) {
+      console.log('err', err)
+      Alert.alert('Ошибка', err, [{text: 'Ok'}]);
+    }
   }
 
   return (
@@ -51,7 +58,7 @@ const AuthScreen = props => {
                     returnKeyType='done'
                   />
                 <TouchableOpacity style={styles.logInButton} 
-                    onPress={authHandler}>
+                    onPress={() => authHandler(email, password)}>
                     <Text style={styles.logInButtonText}>Войти</Text>
                 </TouchableOpacity>
             </View> 

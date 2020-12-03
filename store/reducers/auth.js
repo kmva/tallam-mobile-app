@@ -7,13 +7,12 @@ const initialState = {
 }
 
 const authReducer = (state = initialState, action) => {
-    console.log(SET_SIGNIN_DATA)
+   /*  console.log(SET_SIGNIN_DATA) */
     switch (action.type) {
         case SET_SIGNIN_DATA: 
-            console.log(state);
             return {...state, [action.field]: action.value}
         case SIGNIN: 
-            console.log('SIGNIN')  
+            console.log(SIGNIN);
         default: 
             return state;
     }
