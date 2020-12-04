@@ -1,8 +1,9 @@
 import React  from 'react';
+import { Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { createStackNavigator} from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import {  HeaderButtons, Item  } from 'react-navigation-header-buttons';
 import HeaderButton from '../components/HeaderButton'
 
 
@@ -11,7 +12,7 @@ import ProjectsScreen from '../screens/ProjectsScreen';
 import ProjectScreen from '../screens/ProjectScreen';
 import RateScreen from '../screens/RateScreen';
 
-import { logOut } from '../store/actions/auth';
+import { logout } from '../store/actions/auth';
 
 import Colors from '../constants/Colors'
 
@@ -26,18 +27,63 @@ const TallamNavigator = createStackNavigator(
     {
         Projects: {
             screen: ProjectsScreen,
+            navigationOptions: ({ navigation }) => ({
+                headerRight:  () => {
+                const dispatch = useDispatch();
+                return(<HeaderButtons HeaderButtonComponent={HeaderButton}>
+                        <Item 
+                            title='Выйти' 
+                            iconName='ios-log-out' 
+                            onPress = { () => {
+                                dispatch(logout());
+                                navigation.navigate('Auth');
+                            }}
+                        />
+                    </HeaderButtons>
+                )}
+            })
         },
         ProjectCard: {
             screen: ProjectScreen,
             options: {
                 headerTitle: 'Проект'
-            }
+            },
+            navigationOptions: ({ navigation }) => ({
+                headerRight:  () => {
+                const dispatch = useDispatch();
+                return(<HeaderButtons HeaderButtonComponent={HeaderButton}>
+                        <Item 
+                            title='Выйти' 
+                            iconName='ios-log-out' 
+                            onPress = { () => {
+                                dispatch(logout());
+                                navigation.navigate('Auth');
+                            }}
+                        />
+                    </HeaderButtons>
+                )}
+            })
         },
         Rate: {
             screen: RateScreen,
             options: {
                 headerTitle: 'Оценить урок'
-            }
+            }/* ,
+            navigationOptions: ({ navigation }) => ({
+                headerRight:  () => {
+                const dispatch = useDispatch();
+                return(<HeaderButtons HeaderButtonComponent={HeaderButton}>
+                        <Item 
+                            title='Выйти' 
+                            iconName='ios-log-out' 
+                            onPress = { () => {
+                                dispatch(logout());
+                                navigation.navigate('Auth');
+                            }}
+                        />
+                    </HeaderButtons>
+                )}
+            }) */
         }
     },
     {
@@ -48,14 +94,7 @@ const TallamNavigator = createStackNavigator(
         headerTitleStyle: {
             color: Colors.darkblue
         },
-        headerRight:  () => (<HeaderButtons HeaderButtonComponent={HeaderButton}>
-                    <Item 
-                        title='Выйти' 
-                        iconName='ios-log-out' 
-                        onPress ={/* logOutHandler */() => console.log('logOut') /* navigation.navigate('Projects') */}
-                    />
-                </HeaderButtons>
-        )
+        
     }
 });
 

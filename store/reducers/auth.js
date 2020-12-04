@@ -1,5 +1,4 @@
-import { SIGNIN } from '../actions/auth';
-import { SET_SIGNIN_DATA } from '../actions/auth'
+import { SIGNIN, SET_SIGNIN_DATA, LOGOUT } from '../actions/auth';
 
 const initialState = {
     email: "",
@@ -13,6 +12,8 @@ const authReducer = (state = initialState, action) => {
             return {...state, [action.field]: action.value}
         case SIGNIN: 
             console.log(SIGNIN);
+        case LOGOUT: 
+            console.log(LOGOUT)
         default: 
             return state;
     }

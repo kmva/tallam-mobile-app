@@ -13,12 +13,12 @@ const TeachersInProject = props => {
           <Text>{itemData.item.position}</Text>
         </View>
         <TouchableOpacity onPress={() => {
-            props.navigation.navigate({
-                routeName: 'Rate', 
-                params: {
-                    teacherId: itemData.item.id
-                }
-            });
+          props.navigation.navigate({
+              routeName: 'Rate', 
+              params: {
+                  teacherId: itemData.item.id
+              }
+          });
         }} >
           <View style={styles.teacherButton}><Text style={styles.teacherButtonText}>Оценить</Text></View>
         </TouchableOpacity>

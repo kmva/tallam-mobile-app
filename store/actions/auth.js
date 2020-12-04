@@ -1,5 +1,6 @@
 export const SIGNIN = 'SIGNIN';
 export const SET_SIGNIN_DATA = 'SET_SIGNIN_DATA';
+export const LOGOUT = 'LOGOUT';
 
 export const signin = (email, password) => {
     // реализовать авторизацию на основе данных пользователей из БД
@@ -30,15 +31,17 @@ export const signin = (email, password) => {
             }
 
             throw new Error(errorMessage);
-            console.log(errorResData);
         }
 
         const resData = res.json();
-        /* console.log(resData); */
         dispatch({type: SIGNIN});
     }
 };
 
 export const setSigninData = (field, value) => {
     return {type: SET_SIGNIN_DATA, field, value};
+}
+
+export const logout = () => {
+    return {type: LOGOUT};
 }

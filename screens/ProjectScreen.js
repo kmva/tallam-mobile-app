@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import Footer from '../components//Footer';
 import TeachersInProject from '../components/TeachersInProject';
 import Colors from '../constants/Colors';
+/* import {  HeaderButtons, Item  } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButton' */
 
 import PROJECTS from '../data/projects';
 import TEACHERS from '../data/teachers';
@@ -27,6 +29,16 @@ const ProjectScreen = props => {
         </View>
     )
 }
+
+/* ProjectScreen.navigationOptions = {
+  headerRight:  () => (<HeaderButtons HeaderButtonComponent={HeaderButton}>
+  <Item 
+      title='Выйти' 
+      iconName='ios-log-out' 
+      onPress = { navigation.navigate('Auth') }
+  />
+</HeaderButtons>
+)} */
 
 const styles = StyleSheet.create({
   screen: {

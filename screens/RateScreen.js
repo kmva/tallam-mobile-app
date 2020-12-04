@@ -175,7 +175,7 @@ const RateScreen = props => {
 }
 
 RateScreen.navigationOptions = {
-    headerTitle: 'Оценить урок' 
+    headerTitle: 'Оценить' 
 };
 
 const styles = StyleSheet.create({
